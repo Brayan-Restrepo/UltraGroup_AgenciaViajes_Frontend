@@ -1,0 +1,24 @@
+<header class="topbar">
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" [routerLinkActive]="'active'" [routerLink]="['/home']">
+            <img src="https://upload.wikimedia.org/wikipedia/en/2/24/H-Store-logo.png" width="30" height="30" alt="">
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item" [routerLinkActive]="'active'">
+                    <a class="nav-link" [routerLink]="['/home']">Home</a>
+                </li>
+                <li class="nav-item" [routerLinkActive]="'active'">
+                    <a class="nav-link" [routerLink]="['/gestion']">Gestión</a>
+                </li>
+            </ul>
+            <div class="col">
+                <button class="btn btn-outline-danger my-2 my-sm-0 float-right" >Salir</button>
+            </div>
+        </div>
+    </nav>
+</header>
