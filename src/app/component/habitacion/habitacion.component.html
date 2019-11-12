@@ -1,0 +1,16 @@
+<div class="card-columns">
+    <div class="card" *ngFor="let habitacion of habitaciones">
+        <img [src]="portadaUrl" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">{{habitacion.tipoHabitacion}}</h5>
+            <p class="card-text"><strong>piso: </strong>{{habitacion.piso}}</p>
+            <p class="card-text"><strong>nuemeroHabitacion: </strong> {{habitacion.nuemeroHabitacion}}</p>
+            <p class="card-text"><strong>cantidadPersona: </strong>{{habitacion.cantidadPersona}}</p>            
+            <p class="card-text"><strong>costoBase: </strong>{{habitacion.costoBase}}</p>            
+            <p class="card-text"><strong>impuesto: </strong>{{habitacion.impuesto}}</p>            
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-sm btn-primary float-right">Reservar</button>
+        </div>
+    </div>
+</div>
