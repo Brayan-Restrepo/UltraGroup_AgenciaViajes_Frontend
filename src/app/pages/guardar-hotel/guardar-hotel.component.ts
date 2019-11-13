@@ -60,7 +60,6 @@ export class GuardarHotelComponent implements OnInit {
   public onHotel() {
     if (this.formHotel.valid) {
       if (this.habitaciones.length > 0) {
-        console.log(this.formHotel.value)
         this._hotelService.postHotel(this.formHotel.value).subscribe(response => {
           Swal.fire({ icon: 'success', title: 'Ok', text: 'Hotel Registrado'});
           this.formHotel.reset();

@@ -1,1 +1,25 @@
-<p>login works!</p>
+<form [formGroup]="formLogin" novalidate="novalidate" class="mb-5">
+    <div class="col-4 container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Usuario</label>
+                            <input type="text" class="form-control" formControlName="login">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" formControlName="password">
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <button class="btn btn-sm btn-primary float-right" (click)="onLogin()" >Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
