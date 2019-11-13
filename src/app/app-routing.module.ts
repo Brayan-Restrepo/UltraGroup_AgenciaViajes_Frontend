@@ -7,6 +7,8 @@ import { GestionComponent } from './pages/gestion/gestion.component';
 import { HotelComponent } from './component/hotel/hotel.component';
 import { HabitacionComponent } from './component/habitacion/habitacion.component';
 import { ReservaComponent } from './component/reserva/reserva.component';
+import { GuardarHotelComponent } from './pages/guardar-hotel/guardar-hotel.component';
+import { GestionReservaComponent } from './pages/gestion-reserva/gestion-reserva.component';
 
 
 const routes: Routes = [
@@ -38,7 +40,11 @@ const routes: Routes = [
       },
       {
         path: 'gestion',
-        component:  GestionComponent
+        component:  GuardarHotelComponent
+      },
+      {
+        path: 'gestion/reservas',
+        component:  GestionReservaComponent
       },
     ]
   },

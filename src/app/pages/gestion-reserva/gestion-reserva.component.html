@@ -1,0 +1,91 @@
+<div class="row">
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Hotel</th>
+                <th scope="col">Habitación</th>
+                <th scope="col">Costo base</th>
+                <th scope="col">Impuesto</th>
+                <th scope="col">Fecha entrada</th>
+                <th scope="col">Fecha salida</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let reserva of reservas; let i = index">
+                <td scope="row">{{campoHotel(reserva.habitacionId, 'nombre', true)}}</td>
+                <td scope="row">{{campoHotel(reserva.habitacionId, 'nuemeroHabitacion', false)}} -
+                    {{campoHotel(reserva.habitacionId, 'piso', false)}}</td>
+                <td scope="row">{{campoHotel(reserva.habitacionId, 'costoBase', false)}}</td>
+                <td scope="row">{{campoHotel(reserva.habitacionId, 'impuesto', false)}}</td>
+                <td scope="row">{{reserva.fechaEntrada | date}}</td>
+                <td scope="row">{{reserva.fechaSalida | date}}</td>
+                <td scope="row" class=" text-center">
+                    <button type="button" class="btn btn-success btn-circle" (click)="open(content, reserva.id)">
+                        <i class="fa fa-users"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Detalle Reserva</h4>
+        <button type="button" class="close" aria-label="Close" (click)="c('Save click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p class="font-weight-bold">Contacto Emergencia</p>
+        <div class="ml-2 mr-2 row">
+            <div class="col-lg-6 col-md-12 col-xl-6">
+                <div class="form-group">
+                    <label>Nombre completo</label>
+                    <input type="text" class="form-control" disabled [value]="contactoEmergencia.nombreCompleto">
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-xl-6">
+                <div class="form-group">
+                    <label>Telefono</label>
+                    <input type="text" class="form-control" disabled [value]="contactoEmergencia.telefono">
+                </div>
+            </div>
+        </div>
+        <p class="font-weight-bold">Huéspedes</p>
+        <div class="ml-2 mr-2 overflow-auto row">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Nombres</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Fecha nacimiento</th>
+                        <th scope="col">Genero</th>
+                        <th scope="col">Tipo documento</th>
+                        <th scope="col">Numero documento</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Telefono</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let huesped of huespedes; let i = index">
+                        <td scope="row">{{huesped.nombres}}</td>
+                        <td scope="row">{{huesped.apellidos}}</td>
+                        <td scope="row">{{huesped.fechaNacimiento | date}}</td>
+                        <td scope="row">{{huesped.genero}}</td>
+                        <td scope="row">{{huesped.tipoDocumento}}</td>
+                        <td scope="row">{{huesped.numeroDocumento}}</td>
+                        <td scope="row">{{huesped.email}}</td>
+                        <td scope="row">{{huesped.telefono}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Cerrar</button>
+    </div>
+</ng-template>

@@ -77,10 +77,6 @@ export class ReservaComponent implements OnInit {
 
   get huespedes(): FormArray { return this.formReserva.get('huespedes') as FormArray; }
 
-  public crearHuesped(): FormGroup {
-    return
-  }
-
   public onHuesped(): void {
     if (this.formHuesped.valid) {
       if (Number(this.cantidadPersona) > this.huespedes.length) {

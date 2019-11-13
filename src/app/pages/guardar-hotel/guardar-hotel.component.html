@@ -1,0 +1,152 @@
+<div class="card border-primary mb-3">
+    <div class="card-header">Gegistrar Hotel</div>
+    <div class="card-body text-primary">
+        <form [formGroup]="formHotel" novalidate="novalidate" class="mb-5">
+            <div class="row">
+                <div class="col-lg-5 col-md-6 col-xl-5">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" formControlName="nombre">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-xl-3">
+                    <div class="form-group">
+                        <label>Ciudad</label>
+                        <select class="form-control" formControlName="ciudad">
+                            <option value="Medellin">Medellin</option>
+                            <option value="Bogota">Bogota</option>
+                            <option value="Villavicencio">Villavicencio</option>
+                            <option value="Cartagena">Cartagena</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-xl-3">
+                    <div class="form-group">
+                        <label>Dirección</label>
+                        <input type="text" class="form-control" formControlName="direccion">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-xl-3">
+                    <div class="form-group">
+                        <label>Estrella</label>
+                        <input type="text" class="form-control" formControlName="estrella">
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6 col-xl-5">
+                    <div class="form-group">
+                        <label>Portada URL</label>
+                        <input type="text" class="form-control" formControlName="portadaUrl">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-xl-3">
+                    <div class="form-group">
+                        <label>Activo</label>
+                        <select class="form-control" formControlName="activo">
+                            <option value="true">Si</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-sm btn-success float-right" (click)="onHotel()">Guardar Hotel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="card border-primary mb-3">
+    <div class="card-header">Registrar Habitaciones</div>
+    <div class="card-body text-primary">
+        <form [formGroup]="formHabitacion" novalidate="novalidate" class="mb-5">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-xl-3">
+                    <div class="form-group">
+                        <label>Activo</label>
+                        <select class="form-control" formControlName="activo">
+                            <option value="true">Si</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-xl-3">
+                    <div class="form-group">
+                        <label>Costo base</label>
+                        <input type="text" class="form-control" formControlName="costoBase">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-xl-3">
+                    <div class="form-group">
+                        <label>Impuesto</label>
+                        <input type="text" class="form-control" formControlName="impuesto">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-xl-3">
+                    <div class="form-group">
+                        <label>Tipo Habitación</label>
+                        <input type="text" class="form-control" formControlName="tipoHabitacion">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-xl-3">
+                    <div class="form-group">
+                        <label>Piso</label>
+                        <input type="text" class="form-control" formControlName="piso">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-xl-3">
+                    <div class="form-group">
+                        <label>Nuemero habitaciones</label>
+                        <input type="text" class="form-control" formControlName="nuemeroHabitacion">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-xl-3">
+                    <div class="form-group">
+                        <label>cantidad persona</label>
+                        <input type="text" class="form-control" formControlName="cantidadPersona">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-sm btn-success float-right" (click)="onHabitacion()">Agregar Habitación</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="row">
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Activo</th>
+                <th scope="col">Costo base</th>
+                <th scope="col">Impuesto </th>
+                <th scope="col">Tipo habitacion</th>
+                <th scope="col">piso</th>
+                <th scope="col">Nuemero habitaciones </th>
+                <th scope="col">Cantidad personad</th>
+                <th scope="col">Remover</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let habitacion of habitaciones.value; let i = index">
+                <td scope="row">{{habitacion.activo}}</td>
+                <td scope="row">{{habitacion.costoBase}}</td>
+                <td scope="row">{{habitacion.impuesto}}</td>
+                <td scope="row">{{habitacion.tipoHabitacion}}</td>
+                <td scope="row">{{habitacion.piso}}</td>
+                <td scope="row">{{habitacion.nuemeroHabitacion}}</td>
+                <td scope="row">{{habitacion.cantidadPersona}}</td>
+                <td scope="row text-center">
+                    <button type="button" class="btn btn-danger btn-circle" (click)="onRemoveHabitacion(i)">
+                        <i class="fa fa-close"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>

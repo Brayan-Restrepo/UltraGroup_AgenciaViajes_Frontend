@@ -27,3 +27,28 @@ export interface FiltroHotelModel {
 	fechaSalida: string;
 }
 
+export interface ReservaModel{
+        id: string;
+        habitacionId: string;
+        fechaEntrada: string;
+        fechaSalida: string;
+        huespedes: HuespedesModel[];
+        contactoEmergencia: ContactoEmergenciaModel;
+}
+
+export interface HuespedesModel{
+	id: string;
+	nombres: string;
+	apellidos: string;
+	fechaNacimiento: string;
+	genero: string;
+	tipoDocumento: string;
+	numeroDocumento: string;
+	email: string;
+	telefono: string;
+}
+
+export interface ContactoEmergenciaModel {
+	nombreCompleto: string;
+	telefono: string;
+}

@@ -20,6 +20,8 @@ import { StoreModule } from '@ngrx/store';
 import {hotelesReducer} from './reducers/index';
 import { FiltroComponent } from './shared/filtro/filtro.component';
 import { ReservaComponent } from './component/reserva/reserva.component';
+import { GestionReservaComponent } from './pages/gestion-reserva/gestion-reserva.component';
+import { GuardarHotelComponent } from './pages/guardar-hotel/guardar-hotel.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ReservaComponent } from './component/reserva/reserva.component';
     HotelComponent,
     HabitacionComponent,
     FiltroComponent,
-    ReservaComponent
+    ReservaComponent,
+    GuardarHotelComponent,
+    GestionReservaComponent
   ],
   imports: [
     BrowserModule,
