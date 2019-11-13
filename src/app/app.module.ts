@@ -8,6 +8,18 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { GestionComponent } from './pages/gestion/gestion.component';
 import { HederComponent } from './shared/heder/heder.component';
+import { ApiService } from './services/api/api.service';
+import { HotelService } from './services/hotel/hotel.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { HotelComponent } from './component/hotel/hotel.component';
+import { HabitacionComponent } from './component/habitacion/habitacion.component';
+import { StoreModule } from '@ngrx/store';
+import {hotelesReducer} from './reducers/index';
+import { FiltroComponent } from './shared/filtro/filtro.component';
+import { ReservaComponent } from './component/reserva/reserva.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +28,34 @@ import { HederComponent } from './shared/heder/heder.component';
     LoginComponent,
     HomeComponent,
     GestionComponent,
-    HederComponent
+    HederComponent,
+    HotelComponent,
+    HabitacionComponent,
+    FiltroComponent,
+    ReservaComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    NgbModule,
+    SweetAlert2Module.forRoot(),
+    // StoreModule.forRoot(fromHotel.reducer, {
+    //   runtimeChecks: {
+    //     strictStateImmutability: true,
+    //     strictActionImmutability: true
+    //   }
+    // }),
+    StoreModule.forRoot(
+       {hotel: hotelesReducer }
+    )
   ],
-  providers: [],
+  providers: [
+    ApiService,
+    HotelService  
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
