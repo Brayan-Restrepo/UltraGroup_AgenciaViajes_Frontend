@@ -12,11 +12,6 @@ import { Router } from '@angular/router';
 })
 export class HotelComponent implements OnInit {
 
-  // @Input('hoteles') 
-  // public hoteles: HotelModel[];
-
-  // @Output() verHabitaciones = new EventEmitter();
-
   public selectHoteles$: Observable<HotelModel[]>;
 
   constructor(

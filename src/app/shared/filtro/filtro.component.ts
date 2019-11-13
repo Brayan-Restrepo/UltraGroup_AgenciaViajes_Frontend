@@ -30,7 +30,6 @@ export class FiltroComponent implements OnInit {
   }
   
   public buscarReserva(): void {
-    console.log(this.formFiltro.value);
     if (this.formFiltro.valid) {
       const data = {
           ciudad: this.formFiltro.value.ciudad,

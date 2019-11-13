@@ -13,13 +13,7 @@ export class HabitacionComponent implements OnInit {
 
   public getSelectHotelById$: Observable<HotelModel>;
   public getSelectHotelByIdPortada$: Observable<string>;
-
-  // @Input('habitaciones') 
-  // public habitaciones: HabitacionModel[];
-  
-  // @Input('portadaUrl') 
-  // public portadaUrl: string;
-  
+ 
   constructor(
     private _hotelStoreService: HotelStoreService,
     private rutaActiva: ActivatedRoute,
@@ -27,8 +21,7 @@ export class HabitacionComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.rutaActiva.params.subscribe(
-      (params: Params) => {
+    this.rutaActiva.params.subscribe((params: Params) => {
         this.getSelectHotelById$ = this._hotelStoreService.getSelectHotelById$(params.idHotel);
         this.getSelectHotelByIdPortada$ = this._hotelStoreService.getSelectHotelByIdPortada$(params.idHotel);
       }
