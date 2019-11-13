@@ -43,7 +43,7 @@ const routes: Routes = [
         component:  GuardarHotelComponent
       },
       {
-        path: 'gestion/reservas',
+        path: 'gestion_reservas',
         component:  GestionReservaComponent
       },
     ]
