@@ -1,0 +1,58 @@
+
+<form [formGroup]="formReserva" novalidate="novalidate" class="mb-5">
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-xl-3">
+            <div class="form-group">
+                <label>Nombres</label>
+                <input type="text" class="form-control" formControlName="nombres">
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-xl-3">
+            <div class="form-group">
+                <label>Apellidos</label>
+                <input type="text" class="form-control" formControlName="apellidos">
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-xl-3">
+            <div class="form-group">
+                <label>Fecha Nacimiento</label>
+                <input type="text" class="form-control" formControlName="fechaNacimiento">
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-xl-3">
+            <div class="form-group">
+                <label>Genero</label>
+                <input type="text" class="form-control" formControlName="genero">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-xl-3">
+            <div class="form-group">
+                <label>Tipo documento</label>
+                <input type="text" class="form-control" formControlName="tipoDocumento">
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-xl-3">
+            <div class="form-group">
+                <label>Numero documento</label>
+                <input type="text" class="form-control" formControlName="numeroDocumento">
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-xl-3">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" formControlName="email">
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-xl-3">
+            <div class="form-group">
+                <label>Telefono</label>
+                <input type="text" class="form-control" formControlName="telefono">
+            </div>
+        </div>
+    </div>    
+    <div>
+        <button class="btn btn-sm btn-success float-right" (click)="onReservar()" >Reservar</button>
+    </div>
+</form>

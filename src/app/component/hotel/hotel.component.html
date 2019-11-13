@@ -1,0 +1,15 @@
+<div class="card-columns">
+    <div class="card" *ngFor="let hotel of (selectHoteles$ | async)">
+        <img [src]="hotel.portadaUrl" class="card-img-top" [alt]="hotel.nombre">
+        <div class="card-body">
+            <h5 class="card-title">{{hotel.nombre}}</h5>
+            <p class="card-text"><strong>Habitaciónes: </strong>{{hotel.habitaciones.length}}</p>
+            <p class="card-text"><strong>Ciudad: </strong> {{hotel.ciudad}}</p>
+            <p class="card-text"><strong>Dirección: </strong>{{hotel.direccion}}</p>
+            <ngb-rating [rate]="hotel.estrella"></ngb-rating>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-sm btn-primary float-right" (click)="onVerHabitaciones(hotel.id)" >Ver Habitaciones</button>
+        </div>
+    </div>
+</div>
