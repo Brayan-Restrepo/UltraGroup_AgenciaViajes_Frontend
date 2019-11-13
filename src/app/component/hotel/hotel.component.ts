@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { HotelModel } from 'src/app/models/models';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Observable } from 'rxjs';
+import { HotelStoreService } from 'src/app/store/service/hotelStore.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hotel',
@@ -9,13 +12,17 @@ import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class HotelComponent implements OnInit {
 
-  @Input('hoteles') 
-  public hoteles: HotelModel[];
+  // @Input('hoteles') 
+  // public hoteles: HotelModel[];
 
-  @Output() verHabitaciones = new EventEmitter();
+  // @Output() verHabitaciones = new EventEmitter();
+
+  public selectHoteles$: Observable<HotelModel[]>;
 
   constructor(
-    configEstrella: NgbRatingConfig
+    configEstrella: NgbRatingConfig,
+    private router: Router,
+    private _hotelStoreService: HotelStoreService
   ) {
     configEstrella.max = 5;
     configEstrella.readonly = true;
@@ -23,11 +30,13 @@ export class HotelComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.selectHoteles$ = this._hotelStoreService.getSelectAllHoteles$();  
   }
 
   public onVerHabitaciones(idHotel: string) {
     console.log('onVerHabitaciones');
-    this.verHabitaciones.emit({idHotel: idHotel, activar: true});
+    this.router.navigate(['home', 'habitacion', idHotel]);
+    // this.verHabitaciones.emit({idHotel: idHotel, activar: true});
   }
 
 }

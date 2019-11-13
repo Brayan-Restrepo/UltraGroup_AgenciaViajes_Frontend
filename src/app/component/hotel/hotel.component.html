@@ -1,5 +1,5 @@
 <div class="card-columns">
-    <div class="card" *ngFor="let hotel of hoteles">
+    <div class="card" *ngFor="let hotel of (selectHoteles$ | async)">
         <img [src]="hotel.portadaUrl" class="card-img-top" [alt]="hotel.nombre">
         <div class="card-body">
             <h5 class="card-title">{{hotel.nombre}}</h5>

@@ -4,6 +4,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { PagesComponent } from './pages/pages.component';
 import { HomeComponent } from './pages/home/home.component';
 import { GestionComponent } from './pages/gestion/gestion.component';
+import { HotelComponent } from './component/hotel/hotel.component';
+import { HabitacionComponent } from './component/habitacion/habitacion.component';
+import { ReservaComponent } from './component/reserva/reserva.component';
 
 
 const routes: Routes = [
@@ -18,7 +21,20 @@ const routes: Routes = [
       },
       {
         path: 'home',
-        component:  HomeComponent
+        component:  HomeComponent,
+        children: [
+          {
+            path: 'hotel',
+            component:  HotelComponent
+          },
+          {
+            path: 'habitacion/:idHotel',
+            component:  HabitacionComponent
+          },
+          {
+            path: 'reserva/:idHabitacion',
+            component:  ReservaComponent          },
+        ]
       },
       {
         path: 'gestion',

@@ -16,6 +16,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { HotelComponent } from './component/hotel/hotel.component';
 import { HabitacionComponent } from './component/habitacion/habitacion.component';
+import { StoreModule } from '@ngrx/store';
+import {hotelesReducer} from './reducers/index';
+import { FiltroComponent } from './shared/filtro/filtro.component';
+import { ReservaComponent } from './component/reserva/reserva.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,9 @@ import { HabitacionComponent } from './component/habitacion/habitacion.component
     GestionComponent,
     HederComponent,
     HotelComponent,
-    HabitacionComponent
+    HabitacionComponent,
+    FiltroComponent,
+    ReservaComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +42,15 @@ import { HabitacionComponent } from './component/habitacion/habitacion.component
     AppRoutingModule,
     NgbModule,
     SweetAlert2Module.forRoot(),
+    // StoreModule.forRoot(fromHotel.reducer, {
+    //   runtimeChecks: {
+    //     strictStateImmutability: true,
+    //     strictActionImmutability: true
+    //   }
+    // }),
+    StoreModule.forRoot(
+       {hotel: hotelesReducer }
+    )
   ],
   providers: [
     ApiService,

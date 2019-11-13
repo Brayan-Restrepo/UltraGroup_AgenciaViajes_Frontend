@@ -1,6 +1,6 @@
 export interface HotelModel {
 	id: string;
-	activo: string;
+	activo: boolean;
 	nombre: string;
 	ciudad: string;
 	direccion: string;
