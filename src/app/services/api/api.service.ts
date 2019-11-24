@@ -13,8 +13,6 @@ export class ApiService {
   constructor(
     private http: HttpClient
   ) {
-    console.log(environment.production);
-    console.log(environment.apiUrl);
     // this.url = environment.apiUrl;
     this.url = 'https://ultragroupagenciaviajes.herokuapp.com/';
   }

@@ -29,9 +29,7 @@ export class HotelComponent implements OnInit {
   }
 
   public onVerHabitaciones(idHotel: string) {
-    console.log('onVerHabitaciones');
     this.router.navigate(['home', 'habitacion', idHotel]);
-    // this.verHabitaciones.emit({idHotel: idHotel, activar: true});
   }
 
 }

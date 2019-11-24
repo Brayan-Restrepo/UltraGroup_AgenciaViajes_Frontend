@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { HabitacionModel, HotelModel } from 'src/app/models/models';
+import { Component, OnInit } from '@angular/core';
+import { HotelModel } from 'src/app/models/models';
 import { HotelStoreService } from 'src/app/store/service/hotelStore.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute, Params, Router } from '@angular/router';

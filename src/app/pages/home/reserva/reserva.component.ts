@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { HotelModel, HabitacionModel } from 'src/app/models/models';
+import { HabitacionModel } from 'src/app/models/models';
 import { Observable } from 'rxjs';
 import { HotelStoreService } from 'src/app/store/service/hotelStore.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -54,8 +54,8 @@ export class ReservaComponent implements OnInit {
 
     this.formReserva = new FormGroup({
       habitacionId: new FormControl(this.idHabitacion, Validators.required),
-      fechaEntrada: new FormControl({ value: 'dd', disabled: true }, Validators.required),
-      fechaSalida: new FormControl({ value: '312', disabled: true }, Validators.required),
+      fechaEntrada: new FormControl({ value: '', disabled: true }, Validators.required),
+      fechaSalida: new FormControl({ value: '', disabled: true }, Validators.required),
       huespedes: new FormArray([]),
       contactoEmergencia: new FormGroup({
         nombreCompleto: new FormControl('', Validators.required),
@@ -110,14 +110,13 @@ export class ReservaComponent implements OnInit {
   public onReservar(): void {
     if (this.formReserva.valid) {
       if (this.huespedes.length > 0) {
-        this._hotelService.postReservar(this.formReserva.value).subscribe(response => {
+        this._hotelService.postReservar(this.formReserva.value).subscribe(() => {
           Swal.fire({ icon: 'success', title: 'Ok', text: 'Reserva registrada' }).then(a => {
             this.router.navigate(['home']);
           });
-        }, (error) => {
+        }, () => {
           Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se pudo hacer la reserva' });
         })
-        console.log(this.formReserva.value)
       } else {
         Swal.fire({ icon: 'info', title: 'Oops...', text: 'Ingrese un huésped' });
       }

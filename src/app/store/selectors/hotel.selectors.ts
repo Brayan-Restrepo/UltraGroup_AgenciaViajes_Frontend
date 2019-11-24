@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { hotelFeatureKey, HotelState } from '../reducers/index';
+import { hotelFeatureKey, HotelState } from '../../reducers/index';
 
 export const getPaymentMethodState = createFeatureSelector<HotelState>(
   hotelFeatureKey

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store'; import { HotelModel, HabitacionModel, FiltroHotelModel } from 'src/app/models/models';
 import * as HotelActions from '../actions/hotel.actions';
-import * as HotelSelectors from '../../selectors/hotel.selectors';
+import * as HotelSelectors from '../selectors/hotel.selectors';
 import { Observable } from 'rxjs';
 
 
